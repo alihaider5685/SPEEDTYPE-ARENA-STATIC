@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="SpeedType Arena" />
+  <meta name="description" content="Contact the SpeedType Arena team. Send us feedback, bug reports, feature requests, or general questions. We read every message." />
+  <meta name="keywords" content="contact SpeedType Arena, typing test feedback, WPM test support" />
+  <link rel="canonical" href="https://speedtypearena.com/contact.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://speedtypearena.com/contact.html" />
+  <meta property="og:title"       content="Contact Us — SpeedType Arena" />
+  <meta property="og:description" content="Get in touch with the SpeedType Arena team. We welcome feedback, bug reports, and feature suggestions." />
+  <meta property="og:image"       content="https://speedtypearena.com/og-image.png" />
+  <meta property="og:site_name"   content="SpeedType Arena" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Contact Us — SpeedType Arena" />
+  <meta name="twitter:description" content="Reach out to the SpeedType Arena team with feedback, bug reports, or feature requests." />
+  <meta name="twitter:image"       content="https://speedtypearena.com/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <title>Contact Us — SpeedType Arena</title>
+</head>
+<body>
+
+  <header class="header" role="banner">
+    <a href="index.html" class="logo" aria-label="SpeedType Arena home">
+      <div class="logo-icon" aria-hidden="true">S</div>
+      <span class="logo-text">SpeedType Arena</span>
+    </a>
+    <nav class="nav" id="navMenu" aria-label="Primary navigation">
+      <a href="index.html"    class="nav-link">Home</a>
+      <a href="about.html"   class="nav-link">About</a>
+      <a href="blog.html"    class="nav-link">Blog</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+    <div class="header-right">
+      <button class="theme-toggle" id="themeToggle" title="Toggle light/dark theme" aria-label="Toggle light/dark theme">
+        <span id="themeIcon" aria-hidden="true">&#9728;</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navMenu">&#9776;</button>
+    </div>
+  </header>
+
+  <main class="page-main" id="main-content">
+    <div class="page-hero">
+      <h1 class="page-title">Contact Us</h1>
+      <p class="page-subtitle">Have a question, suggestion, or bug to report? We would love to hear from you.</p>
+    </div>
+
+    <div class="page-content contact-layout">
+
+      <!-- Contact form -->
+      <section class="contact-form-wrap" aria-labelledby="contact-form-heading">
+        <h2 id="contact-form-heading" class="visually-hidden">Send us a message</h2>
+
+        <!-- 
+          To make this form functional, sign up at https://formspree.io (free plan available),
+          create a form, and replace "YOUR_FORM_ID" below with your actual Formspree form ID.
+          The action URL should be: https://formspree.io/f/YOUR_FORM_ID
+        -->
+        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate id="contactForm">
+          <div class="form-group">
+            <label class="form-label" for="contact-name">Your Name <span aria-hidden="true">*</span></label>
+            <input
+              class="form-input"
+              type="text"
+              id="contact-name"
+              name="name"
+              required
+              autocomplete="name"
+              placeholder="Jane Smith"
+              aria-required="true"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-email">Email Address <span aria-hidden="true">*</span></label>
+            <input
+              class="form-input"
+              type="email"
+              id="contact-email"
+              name="email"
+              required
+              autocomplete="email"
+              placeholder="jane@example.com"
+              aria-required="true"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-subject">Subject <span aria-hidden="true">*</span></label>
+            <select class="form-input form-select" id="contact-subject" name="subject" required aria-required="true">
+              <option value="" disabled selected>Select a topic</option>
+              <option value="feedback">General Feedback</option>
+              <option value="bug">Bug Report</option>
+              <option value="feature">Feature Request</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-message">Message <span aria-hidden="true">*</span></label>
+            <textarea
+              class="form-input form-textarea"
+              id="contact-message"
+              name="message"
+              required
+              rows="6"
+              placeholder="Tell us what's on your mind..."
+              aria-required="true"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit" id="formSubmit">Send Message</button>
+          <p class="form-note">Fields marked with <span aria-hidden="true">*</span> are required. We typically respond within 2 business days.</p>
+        </form>
+        <div class="form-success" id="formSuccess" style="display:none" role="alert">
+          <div class="success-icon" aria-hidden="true">&#10003;</div>
+          <h3>Message Sent!</h3>
+          <p>Thank you for reaching out. We will get back to you within 2 business days.</p>
+        </div>
+      </section>
+
+      <!-- Contact info -->
+      <aside class="contact-info" aria-label="Additional contact information">
+        <div class="info-card">
+          <h2>Other Ways to Reach Us</h2>
+          <div class="info-item">
+            <div class="info-icon" aria-hidden="true">&#9993;</div>
+            <div>
+              <strong>Email</strong>
+              <p><a href="mailto:hello@speedtypearena.com" class="inline-link">hello@speedtypearena.com</a></p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon" aria-hidden="true">&#8987;</div>
+            <div>
+              <strong>Response Time</strong>
+              <p>We aim to respond within 2 business days.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-item">
+            <h3>Is SpeedType Arena free?</h3>
+            <p>Yes, completely free with no account required. We will never charge for core typing test features.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Does it work offline?</h3>
+            <p>If you download the project files, the typing test works entirely offline. No internet connection is needed after the initial load.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Is my data stored anywhere?</h3>
+            <p>No. Your typing results and daily best score are stored only in your browser's localStorage. We do not collect or transmit any personal data.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Can I suggest new paragraphs?</h3>
+            <p>Absolutely — use the form above with subject "Feature Request" and include the text you would like added.</p>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo footer-logo" aria-label="SpeedType Arena home">
+          <div class="logo-icon" aria-hidden="true">S</div>
+          <span class="logo-text">SpeedType Arena</span>
+        </a>
+        <p class="footer-tagline">The free competitive typing platform for typists who care about their WPM.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <div class="footer-col">
+          <h3 class="footer-col-title">Practice</h3>
+          <a href="index.html">Typing Test</a>
+          <a href="index.html">15s Test</a>
+          <a href="index.html">30s Test</a>
+          <a href="index.html">60s Test</a>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-title">Blog</h3>
+          <a href="blog-typing-speed.html">Increase Typing Speed</a>
+          <a href="blog-typing-exercises.html">Typing Exercises</a>
+          <a href="blog-wpm-guide.html">WPM Guide</a>
+          <a href="blog-touch-typing.html">Touch Typing Tips</a>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-title">Company</h3>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-title">Legal</h3>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <a href="disclaimer.html">Disclaimer</a>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="footerYear"></span> SpeedType Arena. All rights reserved.</p>
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="disclaimer.html">Disclaimer</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script>
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+    // Basic client-side form feedback (Formspree handles the actual submission)
+    const form = document.getElementById('contactForm');
+    const success = document.getElementById('formSuccess');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        const btn = document.getElementById('formSubmit');
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+        // If using Formspree, it redirects on success; this handles the AJAX case
+        // Remove the lines below if using default Formspree redirect behavior
+      });
+    }
+  </script>
+</body>
+</html>

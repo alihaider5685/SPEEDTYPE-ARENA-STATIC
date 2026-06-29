@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="SpeedType Arena" />
+  <meta name="description" content="SpeedType Arena — Free online typing speed test. Measure your WPM, accuracy, and typing performance with real-time feedback. Practice typing with 15s, 30s, and 60s timed tests or unlimited practice mode." />
+  <meta name="keywords" content="typing test, WPM test, words per minute, typing speed, typing practice, online typing test, free typing test, improve typing speed, typing accuracy" />
+  <link rel="canonical" href="https://speedtypearena.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://speedtypearena.com/" />
+  <meta property="og:title"       content="SpeedType Arena — Free Online Typing Speed Test" />
+  <meta property="og:description" content="Measure your WPM and accuracy with real-time character highlighting. Choose 15s, 30s, 60s timed tests or practice mode. Track your daily best score." />
+  <meta property="og:image"       content="https://speedtypearena.com/og-image.png" />
+  <meta property="og:site_name"   content="SpeedType Arena" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="SpeedType Arena — Free Online Typing Speed Test" />
+  <meta name="twitter:description" content="Measure your WPM and accuracy with real-time character highlighting. Free, no signup required." />
+  <meta name="twitter:image"       content="https://speedtypearena.com/og-image.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "SpeedType Arena",
+    "url": "https://speedtypearena.com/",
+    "description": "Free online typing speed test. Measure WPM and accuracy with real-time feedback.",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <title>SpeedType Arena — Free Online Typing Speed Test | Measure Your WPM</title>
+</head>
+<body>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header class="header" role="banner">
+    <a href="index.html" class="logo" aria-label="SpeedType Arena home">
+      <div class="logo-icon" aria-hidden="true">S</div>
+      <span class="logo-text">SpeedType Arena</span>
+    </a>
+
+    <nav class="nav" id="navMenu" aria-label="Primary navigation">
+      <a href="index.html"    class="nav-link" data-page="index.html">Home</a>
+      <a href="about.html"   class="nav-link" data-page="about.html">About</a>
+      <a href="blog.html"    class="nav-link" data-page="blog.html">Blog</a>
+      <a href="contact.html" class="nav-link" data-page="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-right">
+      <div class="daily-best" id="dailyBest" style="display:none" aria-live="polite">
+        <span class="trophy-icon" aria-hidden="true">&#9733;</span>
+        Best: <strong id="dailyBestVal">0</strong> WPM
+      </div>
+      <button class="theme-toggle" id="themeToggle" title="Toggle light/dark theme" aria-label="Toggle light/dark theme">
+        <span id="themeIcon" aria-hidden="true">&#9728;</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navMenu">&#9776;</button>
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main class="main" id="main-content">
+
+    <!-- Controls bar -->
+    <div class="controls" id="controls" role="toolbar" aria-label="Test settings">
+      <div class="mode-selector" role="group" aria-label="Timer duration">
+        <button class="mode-btn" data-time="15" id="btn15" aria-pressed="false">15s</button>
+        <button class="mode-btn" data-time="30" id="btn30" aria-pressed="false">30s</button>
+        <button class="mode-btn active" data-time="60" id="btn60" aria-pressed="true">60s</button>
+        <button class="mode-btn" data-time="0"  id="btnPractice" aria-pressed="false">Practice</button>
+      </div>
+      <div class="stats-bar" role="status" aria-live="polite" aria-label="Live statistics">
+        <div class="stat">
+          <div class="stat-label">WPM</div>
+          <div class="stat-value" id="liveWpm">0</div>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat">
+          <div class="stat-label">ACC</div>
+          <div class="stat-value" id="liveAcc">100%</div>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat timer-stat">
+          <div class="stat-value timer-value" id="timerDisplay">60s</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider" role="separator"></div>
+
+    <!-- Typing area -->
+    <div class="typing-section" id="typingSection">
+      <p class="typing-hint" id="typingHint" aria-live="polite">Type to start</p>
+
+      <div class="typing-area" id="typingArea" tabindex="0" role="textbox" aria-label="Typing area — click and begin typing" aria-multiline="false">
+        <div class="typing-text" id="typingText" aria-hidden="true"></div>
+        <textarea
+          id="hiddenInput"
+          class="hidden-input"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          aria-hidden="true"
+          tabindex="-1"
+        ></textarea>
+      </div>
+
+      <div class="progress-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Typing progress">
+        <div class="progress-bar" id="progressBar" style="width:0%"></div>
+      </div>
+    </div>
+
+    <!-- Action buttons -->
+    <div class="action-buttons">
+      <button class="btn btn-primary" id="restartBtn" aria-label="Restart typing test">Restart Test</button>
+      <button class="btn btn-secondary" id="newTextBtn" aria-label="Load a new text passage">New Text</button>
+    </div>
+
+    <p class="shortcut-hint">Press <kbd>Tab</kbd> + <kbd>Enter</kbd> to restart quickly</p>
+
+    <!-- Results overlay -->
+    <div class="results-overlay" id="resultsOverlay" style="display:none" role="dialog" aria-modal="true" aria-label="Test results">
+      <div class="results-panel">
+        <h2 class="results-title">Your Results</h2>
+        <div class="new-best-badge" id="newBestBadge" style="display:none" role="alert">&#9733; New Daily Best!</div>
+        <div class="results-grid">
+          <div class="result-item">
+            <div class="result-label">WPM</div>
+            <div class="result-value cyan" id="resFinalWpm">0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Accuracy</div>
+            <div class="result-value" id="resFinalAcc">0%</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Correct Words</div>
+            <div class="result-value green" id="resCorrect">0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Incorrect Words</div>
+            <div class="result-value red" id="resIncorrect">0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Time</div>
+            <div class="result-value" id="resTime">0s</div>
+          </div>
+        </div>
+        <div class="chart-wrap" id="chartWrap">
+          <div class="chart-label">WPM over time</div>
+          <canvas id="wpmChart" height="100" aria-label="WPM over time chart"></canvas>
+        </div>
+        <div class="results-actions">
+          <button class="btn btn-primary" id="tryAgainBtn">Try Again</button>
+          <button class="btn btn-secondary" id="newTextResultBtn">New Text</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== CONTENT SECTION (AdSense / SEO) ===== -->
+    <section class="content-section" aria-labelledby="about-tool-heading">
+      <div class="content-grid">
+        <div class="content-card">
+          <h2 id="about-tool-heading">What is SpeedType Arena?</h2>
+          <p>SpeedType Arena is a free, browser-based typing speed test that measures how fast and accurately you type. With no registration or downloads required, you can start improving your typing skills in seconds. Choose a 15-, 30-, or 60-second timed test, or use Practice Mode for unlimited, pressure-free typing.</p>
+        </div>
+        <div class="content-card">
+          <h2>How is WPM Calculated?</h2>
+          <p>Words Per Minute (WPM) is calculated as the number of correctly typed characters divided by 5 (the average word length), divided by the elapsed time in minutes. This is the industry-standard gross WPM formula used by professional typing platforms worldwide.</p>
+        </div>
+        <div class="content-card">
+          <h2>Tips to Improve Your Typing Speed</h2>
+          <ul>
+            <li>Maintain proper posture and wrist position</li>
+            <li>Use all ten fingers with correct home-row technique</li>
+            <li>Focus on accuracy first — speed follows naturally</li>
+            <li>Practice consistently for 10–15 minutes daily</li>
+            <li>Review and learn from your most common errors</li>
+          </ul>
+        </div>
+        <div class="content-card">
+          <h2>Average Typing Speeds</h2>
+          <ul>
+            <li><strong>Beginner:</strong> 20–40 WPM</li>
+            <li><strong>Average:</strong> 40–60 WPM</li>
+            <li><strong>Proficient:</strong> 60–80 WPM</li>
+            <li><strong>Advanced:</strong> 80–100 WPM</li>
+            <li><strong>Expert / Professional:</strong> 100+ WPM</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo footer-logo" aria-label="SpeedType Arena home">
+          <div class="logo-icon" aria-hidden="true">S</div>
+          <span class="logo-text">SpeedType Arena</span>
+        </a>
+        <p class="footer-tagline">The free competitive typing platform for typists who care about their WPM.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <div class="footer-col">
+          <h3 class="footer-col-title">Practice</h3>
+          <a href="index.html">Typing Test</a>
+          <a href="index.html#btn15">15s Test</a>
+          <a href="index.html#btn30">30s Test</a>
+          <a href="index.html#btn60">60s Test</a>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-title">Blog</h3>
+          <a href="blog-typing-speed.html">Increase Typing Speed</a>
+          <a href="blog-typing-exercises.html">Typing Exercises</a>
+          <a href="blog-wpm-guide.html">WPM Guide</a>
+          <a href="blog-touch-typing.html">Touch Typing Tips</a>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-title">Company</h3>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-title">Legal</h3>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <a href="disclaimer.html">Disclaimer</a>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="footerYear"></span> SpeedType Arena. All rights reserved.</p>
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="disclaimer.html">Disclaimer</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script src="script.js"></script>
+  <script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
+</body>
+</html>
