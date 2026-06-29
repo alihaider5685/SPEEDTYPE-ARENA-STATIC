@@ -501,48 +501,63 @@ kbd {
   padding-top: 48px;
   border-top: 1px solid var(--border);
 }
+
 .content-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 24px;
 }
+
 .content-card {
-  background: var(--bg-card);
+  background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 28px;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px; /* ye line add karo */
 }
+
+.content-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+}
+
 .content-card h2 {
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   color: var(--text);
 }
+
 .content-card p {
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: 15px;
+  line-height: 1.8;
   color: var(--text-dim);
 }
+
 .content-card ul {
   list-style: none;
-  margin-top: 8px;
+  margin-top: 10px;
 }
+
 .content-card ul li {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-dim);
-  padding: 4px 0;
-  padding-left: 16px;
+  padding: 6px 0;
+  padding-left: 18px;
   position: relative;
-  line-height: 1.6;
+  line-height: 1.7;
 }
+
 .content-card ul li::before {
-  content: '–';
+  content: "•";
   position: absolute;
   left: 0;
   color: var(--primary);
 }
-.content-card ul li strong { color: var(--text); }
 
+.content-card ul li strong {
+  color: var(--text);
+}
 /* ---- FOOTER ---- */
 .footer {
   background: var(--bg-card);
